@@ -20,4 +20,14 @@ public class HomeController {
         return "capitalize";
     }
 
+    @GetMapping("/album")
+    public String getAlbum(Model m){
+        Album[] entries = new Album[] {
+                new Album("Flaming Hot Cheetos", Date.valueOf("2020-01-20"), 10000, "these were delicious"),
+                new Album("yogurt", Date.valueOf("2020-01-12"), 180, "yum")
+        };
+        m.addAttribute("entries", entries);
+        return "album";
+    }
+
 }

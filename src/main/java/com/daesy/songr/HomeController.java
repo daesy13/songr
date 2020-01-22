@@ -23,8 +23,10 @@ public class HomeController {
     @GetMapping("/album")
     public String getAlbum(Model m){
         Album[] entries = new Album[] {
-                new Album("Flaming Hot Cheetos", Date.valueOf("2020-01-20"), 10000, "these were delicious"),
-                new Album("yogurt", Date.valueOf("2020-01-12"), 180, "yum")
+                new Album("Nevermind", "Nirvana", 12, 300, "https://upload.wikimedia" +
+                        ".org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg"),
+                new Album("Invasion of Privacy", "CardiB", 12, 300, "https://upload.wikimedia" +
+                        ".org/wikipedia/en/9/97/Cardi_B_-_Invasion_of_Privacy.png"),
         };
         m.addAttribute("entries", entries);
         return "album";

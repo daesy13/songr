@@ -1,7 +1,13 @@
 package com.daesy.songr;
 
+import com.sun.javafx.beans.IDProperty;
+
+@Entity
 public class Album {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    long id;
     String title;
     String artist;
     int songCount;

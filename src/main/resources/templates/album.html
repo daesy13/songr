@@ -7,7 +7,14 @@
 <body>
 <h1>Best Albums</h1>
 
-
+<div class="entry" th:each="entry : ${entries}">
+    <ul>
+    <li th:text="${entry.title}"></li>
+    <li th:text="${entry.artist}"></li>
+    <li th:text="${entry.songCount}"></li>
+    <li th:text="${entry.length}"></li>
+    <li th:text="${entry.imageUrl}"></li>
+    </ul>
 </div>
 </body>
 </html>

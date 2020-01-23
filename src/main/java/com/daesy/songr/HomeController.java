@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -25,29 +28,18 @@ public class HomeController {
         return "capitalize";
     }
 
-    @GetMapping("/album")
+    @GetMapping("/albums")
     public String getAlbum(Model m){
-        Album[] entries = new Album[] {
-                new Album("Nevermind", "Nirvana", 12, 300, "https://upload.wikimedia" +
-                        ".org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg"),
-                new Album("Invasion of Privacy", "CardiB", 12, 300, "https://upload.wikimedia" +
-                        ".org/wikipedia/en/9/97/Cardi_B_-_Invasion_of_Privacy.png"),
-        };
+        List<Album> entries = albumRepository.findAll();
         m.addAttribute("entries", entries);
-        return "album";
+        return "albums";
     }
 
     @PostMapping("/albums")
-    public String addedAlbum(String albumName, String artist, int songCount, int length, String imageUrl){
-        String title = albumName;
-        artist = artist;
-        songCount = songCount;
-        length = length;
-        imageUrl = imageUrl;
-
+    public RedirectView addedAlbum(String title, String artist, int songCount, int length, String imageUrl){
         Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
         albumRepository.save(newAlbum);
-    return "added-album";
+    return new RedirectView("/albums");
     }
 
 }

@@ -26,6 +26,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    // Default constructor for JPA
+    public Album(){}
+
     public String getTitle(){
         return title;
     }
@@ -42,8 +45,7 @@ public class Album {
         return length;
     }
 
-    public String getImgUrl(){
+    public String getImageUrl() {
         return imageUrl;
     }
-
 }

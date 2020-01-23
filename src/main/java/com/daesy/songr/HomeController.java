@@ -1,12 +1,17 @@
 package com.daesy.songr;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    AlbumRepository albumRepository;
 
     @GetMapping("/home")
     public String home(){
@@ -30,6 +35,19 @@ public class HomeController {
         };
         m.addAttribute("entries", entries);
         return "album";
+    }
+
+    @PostMapping("/albums")
+    public String addedAlbum(String albumName, String artist, int songCount, int length, String imageUrl){
+        String title = albumName;
+        artist = artist;
+        songCount = songCount;
+        length = length;
+        imageUrl = imageUrl;
+
+        Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
+        albumRepository.save(newAlbum);
+    return "added-album";
     }
 
 }

@@ -20,3 +20,10 @@ Create an Album class to act as a model in our app.</br>
 An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s art.</br>
 Create a route at /albums that shows three album instances. (These will be hardcoded for today’s lab; create an array that contains three albums, and then display those three on the page.)</br>
 
+## How to Run Application
+- First run the application from IntellJ.
+- After that, go to chrome or any browser and type http://localhost:8080/home to visit the main page.
+- To visit the second page type http://localhost:8080/capitalize/any-word-goes-here
+- This any word that is input where "any-word-goes-here"
+- Last, type http://localhost8080/albums where a list of albums information will show.
+

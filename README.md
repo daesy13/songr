@@ -4,9 +4,9 @@
 <!-- [CODE CHALLENGE 6](#challenge-6)</br> -->
 
 
-<a name="lab-11">code lab 11</a></br></br>
+<a name="lab-11">code lab 11 & 12</a></br></br>
 
-# LAB 11
+# LAB 11 & LAB 12
 [LINK TO CODE](https://github.com/daesy13/songr/tree/master/src/main/java/com/daesy/songr)</br>
 [LINK TO TEST](https://github.com/daesy13/songr/tree/master/src/test/java/com/daesy/songr)
 
@@ -26,4 +26,5 @@ Create a route at /albums that shows three album instances. (These will be hardc
 - To visit the second page type http://localhost:8080/capitalize/any-word-goes-here
 - User can type any word where "any-word-goes-here" to see it capitalize.
 - Last, type http://localhost8080/albums where a list of albums information will show.
+- On this location the user can add more albums to our database.
 

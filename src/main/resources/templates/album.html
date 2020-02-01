@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Album</title>
+</head>
+<body>
+
+<ul class="nav">
+    <li class="navlink"><a href="/home">Home</a></li>
+    <li class="navlink"><a href="/albums">Add Albums</a></li>
+    <li class="navlink"><a href="/album">Album</a></li>
+</ul>
+
+    <h1>This is <span th:text="${album.title}"></span></h1>
+    <img th:src="${album.imageUrl}">
+    Artist: <li th:text="${album.artist}"></li>
+    Song Count: <li th:text="${album.songCount}"></li>
+    Album length: <li th:text="${album.length}"></li>
+    </ul>
+
+
+    <ul th:each="song : ${album.songs}">
+        <li>
+            <span th:text="${song.title}"></span>
+        </li>
+    </ul>
+
+    <form action="/single-song" method="POST">
+    <h2>Add Songs</h2>
+        <input type="hidden" name="id" th:value="${album.id}">
+    Title: <input type="text" name="title">
+    Track Number: <input type="number" name="trackNumber">
+    Length: <input type="number" name="length">
+    <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+</html>

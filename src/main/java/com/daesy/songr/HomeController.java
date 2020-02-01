@@ -16,6 +16,9 @@ public class HomeController {
     @Autowired
     AlbumRepository albumRepository;
 
+    @Autowired
+    SongRepository songRepository;
+
     @GetMapping("/home")
     public String home(){
         return "home";
@@ -40,6 +43,22 @@ public class HomeController {
         Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
         albumRepository.save(newAlbum);
     return new RedirectView("/albums");
+    }
+
+    @GetMapping("/albums/{id}")
+    public String getAlbum(@PathVariable Long id, Model m){
+        Album album = albumRepository.getOne(id);
+        System.out.println(id);
+        m.addAttribute("album", album);
+        return "album";
+    }
+
+    @PostMapping("/single-song")
+    public RedirectView addedSongs(Long id, String title, int length, int trackNumber){
+        Song newSong = new Song(title, length, trackNumber);
+        newSong.album = albumRepository.findById(id).get();
+        songRepository.save(newSong);
+        return new RedirectView("/albums/" + id);
     }
 
 }

@@ -6,6 +6,13 @@
     <title>Album</title>
 </head>
 <body>
+
+<ul class="nav">
+    <li class="navlink"><a href="/home">Home</a></li>
+    <li class="navlink"><a href="/albums">Add Albums</a></li>
+    <li class="navlink"><a href="/album">Album</a></li>
+</ul>
+
 <h1>Best Albums</h1>
 <form action="/albums" method="POST">
     <h2>Add an Album</h2>
@@ -24,7 +31,7 @@
     <li th:text="${entry.artist}"></li>
     <li th:text="${entry.songCount}"></li>
     <li th:text="${entry.length}"></li>
-        <img th:src="${entry.imageUrl}">
+        <a th:href="'albums/'+${entry.id}"><img th:src="${entry.imageUrl}"></a>
     </ul>
 </div>
 </body>
